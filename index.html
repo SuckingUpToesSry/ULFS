@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10111d">
+  <meta name="description" content="Um diretório leve e organizado de links úteis para estudar, criar e jogar — sem enrolação.">
+  <title>links for me — seu cantinho da web</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #10111d;
+      --panel: #181a29;
+      --panel-2: #202236;
+      --text: #f4f2ff;
+      --muted: #a6a5bc;
+      --line: #303149;
+      --purple: #b7a4ff;
+      --cyan: #83e6dc;
+      --pink: #ff9bc9;
+      --shadow: 0 18px 50px #05050c66;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 10% 0%, #5b3e9440 0, transparent 34rem),
+        radial-gradient(ellipse at 90% 10%, #168c8750 0, transparent 30rem),
+        var(--bg);
+      font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    header { padding: 26px 0 0; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+    .brand { display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; letter-spacing:-.04em; }
+    .brand-mark { display:grid; place-items:center; width:34px; height:34px; border-radius:12px; color:#171322; background:linear-gradient(135deg,var(--purple),var(--cyan)); font-size:19px; }
+    .top-note { color:var(--muted); font-size:.83rem; }
+    .hero { padding:76px 0 40px; max-width:780px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:6px 11px; border:1px solid #ffffff20; border-radius:999px; color:var(--cyan); background:#ffffff08; font-size:.78rem; font-weight:700; letter-spacing:.04em; }
+    .pulse { width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 14px var(--cyan); }
+    h1 { margin:18px 0 14px; font-size:clamp(2.8rem, 8vw, 5.8rem); line-height:.96; letter-spacing:-.075em; }
+    h1 span { color:var(--purple); }
+    .intro { max-width:640px; margin:0; color:var(--muted); font-size:clamp(1rem,2vw,1.16rem); }
+    .search-row { display:flex; gap:12px; margin-top:29px; }
+    .searchbox { display:flex; align-items:center; gap:11px; width:min(520px,100%); padding:0 16px; border:1px solid var(--line); border-radius:15px; background:#171827d9; box-shadow:var(--shadow); }
+    .searchbox:focus-within { border-color:var(--purple); box-shadow:0 0 0 3px #b7a4ff20; }
+    .searchbox svg { flex:none; color:var(--muted); }
+    input[type="search"] { width:100%; padding:14px 0; border:0; outline:0; color:var(--text); background:transparent; font:inherit; }
+    input::placeholder { color:#85849c; }
+    .key { color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:1px 6px; font-size:.72rem; }
+    .pills { display:flex; flex-wrap:wrap; gap:8px; margin:25px 0 34px; }
+    .pill { padding:8px 13px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:#ffffff06; text-decoration:none; font-size:.86rem; transition:.18s ease; }
+    .pill:hover, .pill:focus-visible { color:var(--text); border-color:var(--purple); background:#b7a4ff12; outline:none; }
+    main { padding-bottom:65px; }
+    .section { padding-top:18px; margin-top:18px; scroll-margin-top:20px; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:17px; }
+    .section-title { display:flex; align-items:center; gap:11px; }
+    .section-icon { display:grid; place-items:center; width:40px; height:40px; border-radius:13px; background:#b7a4ff16; font-size:20px; }
+    h2 { margin:0; font-size:1.38rem; letter-spacing:-.035em; }
+    .section-sub { margin:2px 0 0; color:var(--muted); font-size:.87rem; }
+    .count { color:var(--muted); font-size:.82rem; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
+    .card { display:flex; flex-direction:column; min-height:164px; padding:18px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(145deg,#1b1d2c,#151622); box-shadow:0 8px 24px #06060b30; text-decoration:none; transition:transform .18s ease,border-color .18s ease,background .18s ease; }
+    .card:hover, .card:focus-visible { transform:translateY(-3px); border-color:#8274bd; background:linear-gradient(145deg,#24243a,#191a29); outline:none; }
+    .card-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .card-emoji { display:grid; place-items:center; width:38px; height:38px; border-radius:12px; background:#ffffff0a; font-size:20px; }
+    .external { color:#88879c; font-size:17px; }
+    .card h3 { margin:15px 0 4px; font-size:1.02rem; letter-spacing:-.02em; }
+    .card p { margin:0; color:var(--muted); font-size:.88rem; }
+    .domain { display:inline-block; margin-top:auto; padding-top:13px; color:var(--cyan); font-size:.76rem; overflow-wrap:anywhere; }
+    .empty { display:none; padding:26px; border:1px dashed var(--line); border-radius:16px; color:var(--muted); text-align:center; }
+    .notice { display:grid; grid-template-columns:auto 1fr; gap:13px; margin-top:44px; padding:19px 20px; border:1px solid #b7a4ff3b; border-radius:17px; background:#b7a4ff0b; }
+    .notice-icon { font-size:21px; }
+    .notice h2 { margin:0 0 4px; font-size:1rem; }
+    .notice p { margin:0; color:var(--muted); font-size:.86rem; }
+    footer { padding:23px 0 35px; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem; }
+    footer .foot { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .hide { display:none !important; }
+    @media (max-width:800px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:560px) {
+      .wrap { width:min(100% - 28px,1120px); }
+      .hero { padding-top:56px; }
+      .top-note { max-width:150px; text-align:right; }
+      .grid { grid-template-columns:1fr; }
+      .card { min-height:145px; }
+      .key { display:none; }
+      .section-head { align-items:center; }
+    }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="topbar">
+      <a class="brand" href="#top" aria-label="Links for me, início"><span class="brand-mark">✳</span><span>links for me</span></a>
+      <span class="top-note">feito pra facilitar a vida, não complicar ✨</span>
+    </div>
+    <div class="hero" id="top">
+      <span class="eyebrow"><span class="pulse"></span> diretório da comunidade</span>
+      <h1>seu cantinho<br>da web<span>.</span></h1>
+      <p class="intro">Links úteis pra estudar, criar e dar uma pausa. Tudo organizado, sem caça ao tesouro — só abrir e partir. Salva aí nos favoritos. 💫</p>
+      <div class="search-row">
+        <label class="searchbox" for="search">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="search" type="search" placeholder="Buscar um link… tipo matemática ou jogos" autocomplete="off">
+          <span class="key">/</span>
+        </label>
+      </div>
+      <nav class="pills" aria-label="Pular para uma categoria">
+        <a class="pill" href="#estudo">📚 Estudos</a>
+        <a class="pill" href="#criacao">🎨 Criatividade</a>
+        <a class="pill" href="#jogos">🎮 Jogos</a>
+        <a class="pill" href="#referencia">🧭 Referência</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="directory">
+    <section class="section" id="estudo" data-section>
+      <div class="section-head"><div class="section-title"><span class="section-icon">📚</span><div><h2>modo foco</h2><p class="section-sub">Aprender sem sofrer no processo.</p></div></div><span class="count">4 links</span></div>
+      <div class="grid">
+        <a class="card" href="https://pt.khanacademy.org/" target="_blank" rel="noopener noreferrer" data-search="khan academy estudo matemática ciências português gratuito"><div class="card-top"><span class="card-emoji">🧠</span><span class="external" aria-hidden="true">↗</span></div><h3>Khan Academy</h3><p>Aulas e exercícios gratuitos, do básico ao avançado.</p><span class="domain">pt.khanacademy.org</span></a>
+        <a class="card" href="https://phet.colorado.edu/pt_BR/" target="_blank" rel="noopener noreferrer" data-search="phet simulações física química matemática ciências"><div class="card-top"><span class="card-emoji">🧪</span><span class="external" aria-hidden="true">↗</span></div><h3>PhET</h3><p>Simulações interativas de ciências e matemática.</p><span class="domain">phet.colorado.edu</span></a>
+        <a class="card" href="https://www.geogebra.org/" target="_blank" rel="noopener noreferrer" data-search="geogebra geometria álgebra gráficos matemática"><div class="card-top"><span class="card-emoji">📐</span><span class="external" aria-hidden="true">↗</span></div><h3>GeoGebra</h3><p>Geometria, gráficos e álgebra pra visualizar a matéria.</p><span class="domain">geogebra.org</span></a>
+        <a class="card" href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer" data-search="wolfram alpha matemática ciência calculadora referência"><div class="card-top"><span class="card-emoji">🔎</span><span class="external" aria-hidden="true">↗</span></div><h3>WolframAlpha</h3><p>Uma mãozinha pra explorar cálculos e conceitos.</p><span class="domain">wolframalpha.com</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="criacao" data-section>
+      <div class="section-head"><div class="section-title"><span class="section-icon">🎨</span><div><h2>cria, testa, repete</h2><p class="section-sub">Pra transformar ideia aleatória em projeto real.</p></div></div><span class="count">3 links</span></div>
+      <div class="grid">
+        <a class="card" href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer" data-search="scratch programação código jogos animação criatividade"><div class="card-top"><span class="card-emoji">🐱</span><span class="external" aria-hidden="true">↗</span></div><h3>Scratch</h3><p>Crie jogos e animações com programação visual.</p><span class="domain">scratch.mit.edu</span></a>
+        <a class="card" href="https://editor.p5js.org/" target="_blank" rel="noopener noreferrer" data-search="p5.js editor programação arte código javascript"><div class="card-top"><span class="card-emoji">🪄</span><span class="external" aria-hidden="true">↗</span></div><h3>p5.js Web Editor</h3><p>Desenho generativo e código criativo direto no navegador.</p><span class="domain">editor.p5js.org</span></a>
+        <a class="card" href="https://developer.mozilla.org/pt-BR/" target="_blank" rel="noopener noreferrer" data-search="mdn programação desenvolvimento web html css javascript documentação"><div class="card-top"><span class="card-emoji">💻</span><span class="external" aria-hidden="true">↗</span></div><h3>MDN Web Docs</h3><p>Documentação confiável pra aprender desenvolvimento web.</p><span class="domain">developer.mozilla.org</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="jogos" data-section>
+      <div class="section-head"><div class="section-title"><span class="section-icon">🎮</span><div><h2>pausa merecida</h2><p class="section-sub">Jogos e diversão — sem promessa de desbloquear rede.</p></div></div><span class="count">3 links</span></div>
+      <div class="grid">
+        <a class="card" href="https://play2048.co/" target="_blank" rel="noopener noreferrer" data-search="2048 jogo puzzle quebra cabeça números"><div class="card-top"><span class="card-emoji">🔢</span><span class="external" aria-hidden="true">↗</span></div><h3>2048</h3><p>O clássico puzzle dos números. Só mais uma partida…</p><span class="domain">play2048.co</span></a>
+        <a class="card" href="https://hextris.io/" target="_blank" rel="noopener noreferrer" data-search="hextris jogo puzzle arcade hexágono"><div class="card-top"><span class="card-emoji">🟣</span><span class="external" aria-hidden="true">↗</span></div><h3>Hextris</h3><p>Arcade rápido, colorido e com vibe de “mais uma”.</p><span class="domain">hextris.io</span></a>
+        <a class="card" href="https://itch.io/games" target="_blank" rel="noopener noreferrer" data-search="itch.io jogos independentes indie games criação"><div class="card-top"><span class="card-emoji">🕹️</span><span class="external" aria-hidden="true">↗</span></div><h3>itch.io</h3><p>Descubra jogos independentes feitos por criadores.</p><span class="domain">itch.io/games</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="referencia" data-section>
+      <div class="section-head"><div class="section-title"><span class="section-icon">🧭</span><div><h2>atalhos úteis</h2><p class="section-sub">Coisas que salvam tempo no dia a dia.</p></div></div><span class="count">2 links</span></div>
+      <div class="grid">
+        <a class="card" href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer" data-search="wikipedia enciclopédia pesquisa referência"><div class="card-top"><span class="card-emoji">📖</span><span class="external" aria-hidden="true">↗</span></div><h3>Wikipédia</h3><p>Ponto de partida pra pesquisar — confira as fontes também.</p><span class="domain">wikipedia.org</span></a>
+        <a class="card" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" data-search="google tradutor idiomas tradução texto"><div class="card-top"><span class="card-emoji">🌐</span><span class="external" aria-hidden="true">↗</span></div><h3>Google Tradutor</h3><p>Traduza palavras e textos entre vários idiomas.</p><span class="domain">translate.google.com</span></a>
+      </div>
+    </section>
+
+    <p class="empty" id="empty" role="status">Nenhum link encontrado. Tenta outra busca ✨</p>
+
+    <aside class="notice" aria-label="Aviso importante">
+      <span class="notice-icon">🛡️</span>
+      <div><h2>Transparência & bom senso</h2><p>Este site é um diretório: não hospeda os serviços listados nem contorna bloqueios, filtros ou regras de escolas. Use a internet de acordo com as políticas da sua escola e os termos de cada serviço. Links externos podem mudar; confira o destino antes de acessar. Conteúdo adulto, espelhos de procedência duvidosa e links voltados a burlar restrições foram deixados de fora.</p></div>
+    </aside>
+  </main>
+
+  <footer><div class="wrap foot"><span>feito com carinho pela comunidade · links for me</span><span>Conteúdo e links revisáveis pela comunidade. Nenhuma afiliação oficial com os sites externos.</span></div></footer>
+  <script>
+    const search = document.querySelector('#search');
+    const cards = [...document.querySelectorAll('.card')];
+    const sections = [...document.querySelectorAll('[data-section]')];
+    const empty = document.querySelector('#empty');
+    search.addEventListener('input', () => {
+      const query = search.value.trim().toLocaleLowerCase('pt-BR');
+      let visible = 0;
+      cards.forEach(card => {
+        const match = !query || `${card.innerText} ${card.dataset.search}`.toLocaleLowerCase('pt-BR').includes(query);
+        card.classList.toggle('hide', !match);
+        if (match) visible++;
+      });
+      sections.forEach(section => section.classList.toggle('hide', !section.querySelector('.card:not(.hide)')));
+      empty.style.display = visible ? 'none' : 'block';
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === '/' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+        event.preventDefault(); search.focus();
+      }
+      if (event.key === 'Escape' && document.activeElement === search) {
+        search.value = ''; search.dispatchEvent(new Event('input')); search.blur();
+      }
+    });
+  </script>
+</body>
+</html>
