@@ -3,92 +3,102 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10111d">
-  <meta name="description" content="Um diretório leve e organizado de links úteis para estudar, criar e jogar — sem enrolação.">
-  <title>links for me — seu cantinho da web</title>
+  <meta name="theme-color" content="#0d1020">
+  <meta name="description" content="Um diretório comunitário de links para aprender, criar e jogar. Organizado, pesquisável e sem enrolação.">
+  <title>Links for me — sua central de links</title>
   <style>
     :root {
       color-scheme: dark;
-      --bg: #10111d;
-      --panel: #181a29;
-      --panel-2: #202236;
-      --text: #f4f2ff;
-      --muted: #a6a5bc;
-      --line: #303149;
-      --purple: #b7a4ff;
-      --cyan: #83e6dc;
-      --pink: #ff9bc9;
-      --shadow: 0 18px 50px #05050c66;
+      --bg: #0d1020; --surface: #15192b; --surface-2: #1c2137;
+      --text: #f5f5ff; --muted: #a5abc3; --line: #2b314a;
+      --purple: #b8a2ff; --cyan: #8ee9dc; --pink: #ff9fcd;
+      --radius: 19px; --shadow: 0 18px 48px #06081470;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse at 10% 0%, #5b3e9440 0, transparent 34rem),
-        radial-gradient(ellipse at 90% 10%, #168c8750 0, transparent 30rem),
-        var(--bg);
+      margin: 0; min-height: 100vh; color: var(--text);
+      background: radial-gradient(ellipse at 0% 0%, #6142a638, transparent 38rem),
+                  radial-gradient(ellipse at 100% 12%, #168d8640, transparent 34rem), var(--bg);
       font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
     a { color: inherit; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
-    header { padding: 26px 0 0; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; }
-    .brand { display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; letter-spacing:-.04em; }
-    .brand-mark { display:grid; place-items:center; width:34px; height:34px; border-radius:12px; color:#171322; background:linear-gradient(135deg,var(--purple),var(--cyan)); font-size:19px; }
-    .top-note { color:var(--muted); font-size:.83rem; }
-    .hero { padding:76px 0 40px; max-width:780px; }
-    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:6px 11px; border:1px solid #ffffff20; border-radius:999px; color:var(--cyan); background:#ffffff08; font-size:.78rem; font-weight:700; letter-spacing:.04em; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; }
+    .brand { display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:850; letter-spacing:-.04em; }
+    .brand-mark { display:grid; place-items:center; width:36px; height:36px; border-radius:13px; color:#171323; background:linear-gradient(135deg,var(--purple),var(--cyan)); font-size:20px; }
+    .top-meta { color:var(--muted); font-size:.82rem; }
+    .hero { position:relative; overflow:hidden; padding:57px clamp(22px,5vw,58px) 34px; border:1px solid #ffffff16; border-radius:28px; background:linear-gradient(120deg,#1b1d33eF,#131a2ceF); box-shadow:var(--shadow); }
+    .hero::after { content:"✳"; position:absolute; right:5%; top:-38px; color:#ffffff08; font-size:clamp(12rem,30vw,23rem); line-height:1; pointer-events:none; }
+    .hero-content { position:relative; z-index:1; max-width:780px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:6px 11px; border:1px solid #8ee9dc38; border-radius:999px; color:var(--cyan); background:#8ee9dc0b; font-size:.76rem; font-weight:750; letter-spacing:.06em; text-transform:uppercase; }
     .pulse { width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 14px var(--cyan); }
-    h1 { margin:18px 0 14px; font-size:clamp(2.8rem, 8vw, 5.8rem); line-height:.96; letter-spacing:-.075em; }
+    h1 { margin:19px 0 13px; font-size:clamp(2.7rem,8vw,5.5rem); line-height:.96; letter-spacing:-.075em; }
     h1 span { color:var(--purple); }
-    .intro { max-width:640px; margin:0; color:var(--muted); font-size:clamp(1rem,2vw,1.16rem); }
-    .search-row { display:flex; gap:12px; margin-top:29px; }
-    .searchbox { display:flex; align-items:center; gap:11px; width:min(520px,100%); padding:0 16px; border:1px solid var(--line); border-radius:15px; background:#171827d9; box-shadow:var(--shadow); }
-    .searchbox:focus-within { border-color:var(--purple); box-shadow:0 0 0 3px #b7a4ff20; }
+    .intro { max-width:640px; margin:0; color:var(--muted); font-size:clamp(1rem,2vw,1.13rem); }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+    .searchbox { display:flex; align-items:center; gap:11px; width:min(510px,100%); min-height:48px; padding:0 14px; border:1px solid var(--line); border-radius:14px; background:#0e1120cc; }
+    .searchbox:focus-within { border-color:var(--purple); box-shadow:0 0 0 3px #b8a2ff20; }
     .searchbox svg { flex:none; color:var(--muted); }
-    input[type="search"] { width:100%; padding:14px 0; border:0; outline:0; color:var(--text); background:transparent; font:inherit; }
-    input::placeholder { color:#85849c; }
-    .key { color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:1px 6px; font-size:.72rem; }
-    .pills { display:flex; flex-wrap:wrap; gap:8px; margin:25px 0 34px; }
-    .pill { padding:8px 13px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:#ffffff06; text-decoration:none; font-size:.86rem; transition:.18s ease; }
-    .pill:hover, .pill:focus-visible { color:var(--text); border-color:var(--purple); background:#b7a4ff12; outline:none; }
-    main { padding-bottom:65px; }
-    .section { padding-top:18px; margin-top:18px; scroll-margin-top:20px; }
-    .section-head { display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:17px; }
+    .searchbox input { width:100%; min-width:0; padding:12px 0; border:0; outline:0; color:var(--text); background:transparent; }
+    .searchbox input::placeholder { color:#858ba4; }
+    .key { padding:1px 6px; border:1px solid var(--line); border-radius:6px; color:var(--muted); font-size:.7rem; }
+    .action-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:0 15px; border:1px solid #b8a2ff54; border-radius:14px; color:var(--text); background:#b8a2ff15; cursor:pointer; font-weight:700; transition:.18s ease; }
+    .action-btn:hover, .action-btn:focus-visible { border-color:var(--purple); background:#b8a2ff25; outline:none; }
+    .quick-links { display:flex; flex-wrap:wrap; gap:8px; margin-top:23px; }
+    .quick-link { padding:7px 11px; border:1px solid #ffffff1b; border-radius:999px; color:var(--muted); background:#ffffff08; text-decoration:none; font-size:.82rem; }
+    .quick-link:hover, .quick-link:focus-visible { color:var(--text); border-color:var(--purple); outline:none; }
+    main { padding:29px 0 65px; }
+    .toolbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin:0 0 22px; }
+    .filters { display:flex; flex-wrap:wrap; gap:8px; }
+    .filter { padding:8px 13px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:#ffffff05; cursor:pointer; font-size:.85rem; transition:.18s ease; }
+    .filter:hover, .filter:focus-visible { border-color:#9282cf; color:var(--text); outline:none; }
+    .filter[aria-pressed="true"] { border-color:var(--purple); color:#f5f1ff; background:#b8a2ff22; }
+    .result-count { color:var(--muted); font-size:.83rem; }
+    .section { padding-top:19px; margin-top:23px; scroll-margin-top:18px; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:16px; margin-bottom:14px; }
     .section-title { display:flex; align-items:center; gap:11px; }
-    .section-icon { display:grid; place-items:center; width:40px; height:40px; border-radius:13px; background:#b7a4ff16; font-size:20px; }
-    h2 { margin:0; font-size:1.38rem; letter-spacing:-.035em; }
-    .section-sub { margin:2px 0 0; color:var(--muted); font-size:.87rem; }
-    .count { color:var(--muted); font-size:.82rem; }
+    .section-icon { display:grid; place-items:center; width:42px; height:42px; border-radius:14px; background:#b8a2ff16; font-size:20px; }
+    h2 { margin:0; font-size:1.3rem; letter-spacing:-.035em; }
+    .section-sub { margin:2px 0 0; color:var(--muted); font-size:.86rem; }
+    .section-count { color:var(--muted); font-size:.79rem; white-space:nowrap; }
     .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
-    .card { display:flex; flex-direction:column; min-height:164px; padding:18px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(145deg,#1b1d2c,#151622); box-shadow:0 8px 24px #06060b30; text-decoration:none; transition:transform .18s ease,border-color .18s ease,background .18s ease; }
-    .card:hover, .card:focus-visible { transform:translateY(-3px); border-color:#8274bd; background:linear-gradient(145deg,#24243a,#191a29); outline:none; }
-    .card-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
-    .card-emoji { display:grid; place-items:center; width:38px; height:38px; border-radius:12px; background:#ffffff0a; font-size:20px; }
-    .external { color:#88879c; font-size:17px; }
-    .card h3 { margin:15px 0 4px; font-size:1.02rem; letter-spacing:-.02em; }
-    .card p { margin:0; color:var(--muted); font-size:.88rem; }
-    .domain { display:inline-block; margin-top:auto; padding-top:13px; color:var(--cyan); font-size:.76rem; overflow-wrap:anywhere; }
-    .empty { display:none; padding:26px; border:1px dashed var(--line); border-radius:16px; color:var(--muted); text-align:center; }
-    .notice { display:grid; grid-template-columns:auto 1fr; gap:13px; margin-top:44px; padding:19px 20px; border:1px solid #b7a4ff3b; border-radius:17px; background:#b7a4ff0b; }
+    .card { position:relative; display:flex; flex-direction:column; min-height:186px; padding:16px; border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(145deg,#191d30,#131625); box-shadow:0 8px 25px #05071145; transition:transform .18s ease,border-color .18s ease,background .18s ease; }
+    .card:hover, .card:focus-within { transform:translateY(-3px); border-color:#8173b6; background:linear-gradient(145deg,#21243a,#171b2c); }
+    .card-top { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .card-emoji { display:grid; place-items:center; width:39px; height:39px; border-radius:13px; background:#ffffff0a; font-size:20px; }
+    .favorite { display:grid; place-items:center; width:35px; height:35px; border:1px solid transparent; border-radius:11px; color:#8b91a9; background:transparent; cursor:pointer; font-size:19px; }
+    .favorite:hover, .favorite:focus-visible { border-color:var(--line); color:var(--pink); outline:none; }
+    .favorite[aria-pressed="true"] { color:var(--pink); }
+    .card-link { display:block; text-decoration:none; }
+    .card h3 { margin:13px 0 4px; font-size:1rem; letter-spacing:-.02em; }
+    .card p { margin:0; color:var(--muted); font-size:.86rem; }
+    .card-bottom { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:13px; }
+    .domain { color:var(--cyan); font-size:.74rem; overflow-wrap:anywhere; }
+    .external { color:#8d91a6; font-size:16px; }
+    .empty { display:none; margin:25px 0; padding:26px; border:1px dashed var(--line); border-radius:16px; color:var(--muted); text-align:center; }
+    .notice { display:grid; grid-template-columns:auto 1fr; gap:13px; margin-top:43px; padding:18px 20px; border:1px solid #b8a2ff38; border-radius:17px; background:#b8a2ff0b; }
     .notice-icon { font-size:21px; }
     .notice h2 { margin:0 0 4px; font-size:1rem; }
-    .notice p { margin:0; color:var(--muted); font-size:.86rem; }
-    footer { padding:23px 0 35px; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem; }
-    footer .foot { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .notice p { margin:0; color:var(--muted); font-size:.84rem; }
+    footer { padding:23px 0 35px; border-top:1px solid var(--line); color:var(--muted); font-size:.8rem; }
+    .foot { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
     .hide { display:none !important; }
-    @media (max-width:800px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:560px) {
-      .wrap { width:min(100% - 28px,1120px); }
-      .hero { padding-top:56px; }
-      .top-note { max-width:150px; text-align:right; }
+    @media (max-width:850px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:580px) {
+      .wrap { width:min(100% - 28px,1160px); }
+      .top-meta { max-width:145px; text-align:right; }
+      .hero { padding:43px 20px 26px; border-radius:22px; }
+      .hero::after { right:-15%; top:5px; font-size:15rem; }
+      .hero-actions { align-items:stretch; }
+      .searchbox { flex:1 1 100%; }
+      .action-btn { flex:1; }
       .grid { grid-template-columns:1fr; }
-      .card { min-height:145px; }
-      .key { display:none; }
+      .card { min-height:162px; }
       .section-head { align-items:center; }
+      .key { display:none; }
     }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; } }
   </style>
@@ -97,98 +107,178 @@
   <header class="wrap">
     <div class="topbar">
       <a class="brand" href="#top" aria-label="Links for me, início"><span class="brand-mark">✳</span><span>links for me</span></a>
-      <span class="top-note">feito pra facilitar a vida, não complicar ✨</span>
+      <span class="top-meta">diretório da comunidade · edição 01</span>
     </div>
     <div class="hero" id="top">
-      <span class="eyebrow"><span class="pulse"></span> diretório da comunidade</span>
-      <h1>seu cantinho<br>da web<span>.</span></h1>
-      <p class="intro">Links úteis pra estudar, criar e dar uma pausa. Tudo organizado, sem caça ao tesouro — só abrir e partir. Salva aí nos favoritos. 💫</p>
-      <div class="search-row">
-        <label class="searchbox" for="search">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <input id="search" type="search" placeholder="Buscar um link… tipo matemática ou jogos" autocomplete="off">
-          <span class="key">/</span>
-        </label>
+      <div class="hero-content">
+        <span class="eyebrow"><span class="pulse"></span> sua central de links</span>
+        <h1>acha teu<br>próximo <span>favorito.</span></h1>
+        <p class="intro">Estudo, criação, jogos e ferramentas num lugar só. Procura pelo nome ou pela vibe — sem lista infinita perdida no grupo. ✨</p>
+        <div class="hero-actions">
+          <label class="searchbox" for="search">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input id="search" type="search" placeholder="Buscar matemática, puzzle, código…" autocomplete="off" aria-label="Buscar links">
+            <span class="key">/</span>
+          </label>
+          <button class="action-btn" id="surprise" type="button">🎲 Me surpreende</button>
+        </div>
+        <nav class="quick-links" aria-label="Atalhos de categoria">
+          <a class="quick-link" href="#estudo">📚 Estudo</a>
+          <a class="quick-link" href="#criacao">🛠️ Criar</a>
+          <a class="quick-link" href="#jogos">🎮 Jogos</a>
+          <a class="quick-link" href="#ferramentas">🧰 Ferramentas</a>
+        </nav>
       </div>
-      <nav class="pills" aria-label="Pular para uma categoria">
-        <a class="pill" href="#estudo">📚 Estudos</a>
-        <a class="pill" href="#criacao">🎨 Criatividade</a>
-        <a class="pill" href="#jogos">🎮 Jogos</a>
-        <a class="pill" href="#referencia">🧭 Referência</a>
-      </nav>
     </div>
   </header>
 
   <main class="wrap" id="directory">
-    <section class="section" id="estudo" data-section>
-      <div class="section-head"><div class="section-title"><span class="section-icon">📚</span><div><h2>modo foco</h2><p class="section-sub">Aprender sem sofrer no processo.</p></div></div><span class="count">4 links</span></div>
+    <div class="toolbar" aria-label="Filtros do diretório">
+      <div class="filters" role="group" aria-label="Filtrar por categoria">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">Tudo</button>
+        <button class="filter" type="button" data-filter="study" aria-pressed="false">📚 Estudo</button>
+        <button class="filter" type="button" data-filter="create" aria-pressed="false">🛠️ Criar</button>
+        <button class="filter" type="button" data-filter="games" aria-pressed="false">🎮 Jogos</button>
+        <button class="filter" type="button" data-filter="tools" aria-pressed="false">🧰 Ferramentas</button>
+        <button class="filter" type="button" data-filter="favorites" aria-pressed="false">💜 Favoritos</button>
+      </div>
+      <span class="result-count" id="result-count" aria-live="polite"></span>
+    </div>
+
+    <section class="section" id="estudo" data-section="study">
+      <div class="section-head"><div class="section-title"><span class="section-icon">📚</span><div><h2>modo foco</h2><p class="section-sub">Matemática, ciências, leituras e pesquisa.</p></div></div><span class="section-count"></span></div>
       <div class="grid">
-        <a class="card" href="https://pt.khanacademy.org/" target="_blank" rel="noopener noreferrer" data-search="khan academy estudo matemática ciências português gratuito"><div class="card-top"><span class="card-emoji">🧠</span><span class="external" aria-hidden="true">↗</span></div><h3>Khan Academy</h3><p>Aulas e exercícios gratuitos, do básico ao avançado.</p><span class="domain">pt.khanacademy.org</span></a>
-        <a class="card" href="https://phet.colorado.edu/pt_BR/" target="_blank" rel="noopener noreferrer" data-search="phet simulações física química matemática ciências"><div class="card-top"><span class="card-emoji">🧪</span><span class="external" aria-hidden="true">↗</span></div><h3>PhET</h3><p>Simulações interativas de ciências e matemática.</p><span class="domain">phet.colorado.edu</span></a>
-        <a class="card" href="https://www.geogebra.org/" target="_blank" rel="noopener noreferrer" data-search="geogebra geometria álgebra gráficos matemática"><div class="card-top"><span class="card-emoji">📐</span><span class="external" aria-hidden="true">↗</span></div><h3>GeoGebra</h3><p>Geometria, gráficos e álgebra pra visualizar a matéria.</p><span class="domain">geogebra.org</span></a>
-        <a class="card" href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer" data-search="wolfram alpha matemática ciência calculadora referência"><div class="card-top"><span class="card-emoji">🔎</span><span class="external" aria-hidden="true">↗</span></div><h3>WolframAlpha</h3><p>Uma mãozinha pra explorar cálculos e conceitos.</p><span class="domain">wolframalpha.com</span></a>
+        <article class="card" data-category="study" data-search="khan academy aula curso matemática ciências exercício português gratuito"><div class="card-top"><span class="card-emoji">🧠</span><button class="favorite" type="button" aria-label="Adicionar Khan Academy aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://pt.khanacademy.org/" target="_blank" rel="noopener noreferrer"><h3>Khan Academy</h3><p>Aulas e exercícios gratuitos, do básico ao avançado.</p></a><div class="card-bottom"><span class="domain">pt.khanacademy.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="study" data-search="phet simulação física química biologia matemática ciências"><div class="card-top"><span class="card-emoji">🧪</span><button class="favorite" type="button" aria-label="Adicionar PhET aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://phet.colorado.edu/pt_BR/" target="_blank" rel="noopener noreferrer"><h3>PhET Interactive Simulations</h3><p>Experimentos virtuais de ciências e matemática.</p></a><div class="card-bottom"><span class="domain">phet.colorado.edu</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="study" data-search="geogebra geometria álgebra gráficos matemática calculadora"><div class="card-top"><span class="card-emoji">📐</span><button class="favorite" type="button" aria-label="Adicionar GeoGebra aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.geogebra.org/" target="_blank" rel="noopener noreferrer"><h3>GeoGebra</h3><p>Geometria, álgebra e gráficos que dão pra explorar.</p></a><div class="card-bottom"><span class="domain">geogebra.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="study" data-search="desmos gráfico calculadora matemática função álgebra"><div class="card-top"><span class="card-emoji">📈</span><button class="favorite" type="button" aria-label="Adicionar Desmos aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.desmos.com/" target="_blank" rel="noopener noreferrer"><h3>Desmos</h3><p>Calculadoras gráficas pra visualizar funções e ideias.</p></a><div class="card-bottom"><span class="domain">desmos.com</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="study" data-search="openstax livros didáticos gratuitos física biologia matemática ciência"><div class="card-top"><span class="card-emoji">📘</span><button class="favorite" type="button" aria-label="Adicionar OpenStax aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://openstax.org/" target="_blank" rel="noopener noreferrer"><h3>OpenStax</h3><p>Livros didáticos gratuitos e revisados por especialistas.</p></a><div class="card-bottom"><span class="domain">openstax.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="study" data-search="ck-12 aulas exercícios livro ciências matemática"><div class="card-top"><span class="card-emoji">🧩</span><button class="favorite" type="button" aria-label="Adicionar CK-12 aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.ck12.org/" target="_blank" rel="noopener noreferrer"><h3>CK-12</h3><p>Materiais e atividades interativas de várias matérias.</p></a><div class="card-bottom"><span class="domain">ck12.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="study" data-search="nasa space place espaço astronomia ciência crianças"><div class="card-top"><span class="card-emoji">🚀</span><button class="favorite" type="button" aria-label="Adicionar NASA Space Place aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://spaceplace.nasa.gov/" target="_blank" rel="noopener noreferrer"><h3>NASA Space Place</h3><p>Espaço, Terra e ciência em atividades fáceis de explorar.</p></a><div class="card-bottom"><span class="domain">spaceplace.nasa.gov</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="study" data-search="project gutenberg livros literatura clássicos leitura domínio público"><div class="card-top"><span class="card-emoji">📚</span><button class="favorite" type="button" aria-label="Adicionar Project Gutenberg aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer"><h3>Project Gutenberg</h3><p>Biblioteca de livros digitais de domínio público.</p></a><div class="card-bottom"><span class="domain">gutenberg.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="study" data-search="scielo artigos científicos pesquisa brasil ciência"><div class="card-top"><span class="card-emoji">🔬</span><button class="favorite" type="button" aria-label="Adicionar SciELO aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.scielo.br/" target="_blank" rel="noopener noreferrer"><h3>SciELO Brasil</h3><p>Artigos científicos e revistas de pesquisa em acesso aberto.</p></a><div class="card-bottom"><span class="domain">scielo.br</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="study" data-search="google scholar acadêmico pesquisa artigos científicos"><div class="card-top"><span class="card-emoji">🎓</span><button class="favorite" type="button" aria-label="Adicionar Google Acadêmico aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer"><h3>Google Acadêmico</h3><p>Encontre artigos, teses e publicações acadêmicas.</p></a><div class="card-bottom"><span class="domain">scholar.google.com</span><span class="external" aria-hidden="true">↗</span></div></article>
       </div>
     </section>
 
-    <section class="section" id="criacao" data-section>
-      <div class="section-head"><div class="section-title"><span class="section-icon">🎨</span><div><h2>cria, testa, repete</h2><p class="section-sub">Pra transformar ideia aleatória em projeto real.</p></div></div><span class="count">3 links</span></div>
+    <section class="section" id="criacao" data-section="create">
+      <div class="section-head"><div class="section-title"><span class="section-icon">🛠️</span><div><h2>cria, testa, repete</h2><p class="section-sub">Código, design e ideias que saem do rascunho.</p></div></div><span class="section-count"></span></div>
       <div class="grid">
-        <a class="card" href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer" data-search="scratch programação código jogos animação criatividade"><div class="card-top"><span class="card-emoji">🐱</span><span class="external" aria-hidden="true">↗</span></div><h3>Scratch</h3><p>Crie jogos e animações com programação visual.</p><span class="domain">scratch.mit.edu</span></a>
-        <a class="card" href="https://editor.p5js.org/" target="_blank" rel="noopener noreferrer" data-search="p5.js editor programação arte código javascript"><div class="card-top"><span class="card-emoji">🪄</span><span class="external" aria-hidden="true">↗</span></div><h3>p5.js Web Editor</h3><p>Desenho generativo e código criativo direto no navegador.</p><span class="domain">editor.p5js.org</span></a>
-        <a class="card" href="https://developer.mozilla.org/pt-BR/" target="_blank" rel="noopener noreferrer" data-search="mdn programação desenvolvimento web html css javascript documentação"><div class="card-top"><span class="card-emoji">💻</span><span class="external" aria-hidden="true">↗</span></div><h3>MDN Web Docs</h3><p>Documentação confiável pra aprender desenvolvimento web.</p><span class="domain">developer.mozilla.org</span></a>
+        <article class="card" data-category="create" data-search="scratch programação código blocos jogos animação criatividade"><div class="card-top"><span class="card-emoji">🐱</span><button class="favorite" type="button" aria-label="Adicionar Scratch aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer"><h3>Scratch</h3><p>Crie jogos, histórias e animações com programação visual.</p></a><div class="card-bottom"><span class="domain">scratch.mit.edu</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="create" data-search="p5js programação arte código javascript desenho generativo"><div class="card-top"><span class="card-emoji">🪄</span><button class="favorite" type="button" aria-label="Adicionar p5.js aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://editor.p5js.org/" target="_blank" rel="noopener noreferrer"><h3>p5.js Web Editor</h3><p>Arte generativa e experimentos criativos direto no navegador.</p></a><div class="card-bottom"><span class="domain">editor.p5js.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="create" data-search="code.org programação aprender código jogos ciência da computação"><div class="card-top"><span class="card-emoji">🧑‍💻</span><button class="favorite" type="button" aria-label="Adicionar Code.org aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://studio.code.org/" target="_blank" rel="noopener noreferrer"><h3>Code.org</h3><p>Atividades guiadas pra dar os primeiros passos em código.</p></a><div class="card-bottom"><span class="domain">studio.code.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="create" data-search="mdn web docs html css javascript programação desenvolvimento web documentação"><div class="card-top"><span class="card-emoji">🌐</span><button class="favorite" type="button" aria-label="Adicionar MDN aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://developer.mozilla.org/pt-BR/" target="_blank" rel="noopener noreferrer"><h3>MDN Web Docs</h3><p>Referência sólida pra aprender HTML, CSS e JavaScript.</p></a><div class="card-bottom"><span class="domain">developer.mozilla.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="create" data-search="canva design apresentação cartaz criatividade"><div class="card-top"><span class="card-emoji">🎨</span><button class="favorite" type="button" aria-label="Adicionar Canva aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer"><h3>Canva</h3><p>Apresentações, cartazes e designs sem começar do zero.</p></a><div class="card-bottom"><span class="domain">canva.com</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="create" data-search="photopea editor imagem photoshop desenho design"><div class="card-top"><span class="card-emoji">🖼️</span><button class="favorite" type="button" aria-label="Adicionar Photopea aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.photopea.com/" target="_blank" rel="noopener noreferrer"><h3>Photopea</h3><p>Editor de imagens no navegador, sem instalar programa.</p></a><div class="card-bottom"><span class="domain">photopea.com</span><span class="external" aria-hidden="true">↗</span></div></article>
       </div>
     </section>
 
-    <section class="section" id="jogos" data-section>
-      <div class="section-head"><div class="section-title"><span class="section-icon">🎮</span><div><h2>pausa merecida</h2><p class="section-sub">Jogos e diversão — sem promessa de desbloquear rede.</p></div></div><span class="count">3 links</span></div>
+    <section class="section" id="jogos" data-section="games">
+      <div class="section-head"><div class="section-title"><span class="section-icon">🎮</span><div><h2>pausa merecida</h2><p class="section-sub">Puzzles, jogos de navegador e descobertas indie.</p></div></div><span class="section-count"></span></div>
       <div class="grid">
-        <a class="card" href="https://play2048.co/" target="_blank" rel="noopener noreferrer" data-search="2048 jogo puzzle quebra cabeça números"><div class="card-top"><span class="card-emoji">🔢</span><span class="external" aria-hidden="true">↗</span></div><h3>2048</h3><p>O clássico puzzle dos números. Só mais uma partida…</p><span class="domain">play2048.co</span></a>
-        <a class="card" href="https://hextris.io/" target="_blank" rel="noopener noreferrer" data-search="hextris jogo puzzle arcade hexágono"><div class="card-top"><span class="card-emoji">🟣</span><span class="external" aria-hidden="true">↗</span></div><h3>Hextris</h3><p>Arcade rápido, colorido e com vibe de “mais uma”.</p><span class="domain">hextris.io</span></a>
-        <a class="card" href="https://itch.io/games" target="_blank" rel="noopener noreferrer" data-search="itch.io jogos independentes indie games criação"><div class="card-top"><span class="card-emoji">🕹️</span><span class="external" aria-hidden="true">↗</span></div><h3>itch.io</h3><p>Descubra jogos independentes feitos por criadores.</p><span class="domain">itch.io/games</span></a>
+        <article class="card" data-category="games" data-search="2048 puzzle números quebra cabeça lógica jogo navegador"><div class="card-top"><span class="card-emoji">🔢</span><button class="favorite" type="button" aria-label="Adicionar 2048 aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://play2048.co/" target="_blank" rel="noopener noreferrer"><h3>2048</h3><p>Combine números no puzzle que sempre pede “só mais uma”.</p></a><div class="card-bottom"><span class="domain">play2048.co</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="games" data-search="hextris arcade puzzle hexágono jogo rápido"><div class="card-top"><span class="card-emoji">🟣</span><button class="favorite" type="button" aria-label="Adicionar Hextris aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://hextris.io/" target="_blank" rel="noopener noreferrer"><h3>Hextris</h3><p>Arcade de encaixar blocos, simples de começar e difícil de largar.</p></a><div class="card-bottom"><span class="domain">hextris.io</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="games" data-search="tetris clássico blocos puzzle jogo"><div class="card-top"><span class="card-emoji">🧱</span><button class="favorite" type="button" aria-label="Adicionar Tetris aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://tetris.com/play-tetris" target="_blank" rel="noopener noreferrer"><h3>Tetris</h3><p>O clássico dos blocos, no site oficial de Tetris.</p></a><div class="card-bottom"><span class="domain">tetris.com</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="games" data-search="lichess xadrez chess puzzles estratégia multiplayer"><div class="card-top"><span class="card-emoji">♟️</span><button class="favorite" type="button" aria-label="Adicionar Lichess aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://lichess.org/" target="_blank" rel="noopener noreferrer"><h3>Lichess</h3><p>Xadrez grátis, puzzles, partidas e análise de jogadas.</p></a><div class="card-bottom"><span class="domain">lichess.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="games" data-search="wordle palavras inglês jogo diário letras"><div class="card-top"><span class="card-emoji">🔤</span><button class="favorite" type="button" aria-label="Adicionar Wordle aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.nytimes.com/games/wordle/index.html" target="_blank" rel="noopener noreferrer"><h3>Wordle</h3><p>Descubra a palavra do dia em seis tentativas.</p></a><div class="card-bottom"><span class="domain">nytimes.com/games/wordle</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="games" data-search="coolmath games jogos lógica matemática arcade puzzle"><div class="card-top"><span class="card-emoji">🧮</span><button class="favorite" type="button" aria-label="Adicionar Coolmath Games aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.coolmathgames.com/" target="_blank" rel="noopener noreferrer"><h3>Coolmath Games</h3><p>Jogos de lógica, estratégia e arcade num catálogo só.</p></a><div class="card-bottom"><span class="domain">coolmathgames.com</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="games" data-search="poki jogos navegador casual aventura corrida"><div class="card-top"><span class="card-emoji">🕹️</span><button class="favorite" type="button" aria-label="Adicionar Poki aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://poki.com/" target="_blank" rel="noopener noreferrer"><h3>Poki</h3><p>Catálogo de jogos casuais pra jogar no navegador.</p></a><div class="card-bottom"><span class="domain">poki.com</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="games" data-search="itch.io indie independentes desenvolvedores jogos criativos"><div class="card-top"><span class="card-emoji">🧑‍🎨</span><button class="favorite" type="button" aria-label="Adicionar itch.io aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://itch.io/games" target="_blank" rel="noopener noreferrer"><h3>itch.io</h3><p>Jogos independentes e projetos experimentais de criadores.</p></a><div class="card-bottom"><span class="domain">itch.io/games</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="games" data-search="board game arena jogos tabuleiro online cartas estratégia"><div class="card-top"><span class="card-emoji">🎲</span><button class="favorite" type="button" aria-label="Adicionar Board Game Arena aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://boardgamearena.com/" target="_blank" rel="noopener noreferrer"><h3>Board Game Arena</h3><p>Jogos de tabuleiro online com amigos ou outras pessoas.</p></a><div class="card-bottom"><span class="domain">boardgamearena.com</span><span class="external" aria-hidden="true">↗</span></div></article>
       </div>
     </section>
 
-    <section class="section" id="referencia" data-section>
-      <div class="section-head"><div class="section-title"><span class="section-icon">🧭</span><div><h2>atalhos úteis</h2><p class="section-sub">Coisas que salvam tempo no dia a dia.</p></div></div><span class="count">2 links</span></div>
+    <section class="section" id="ferramentas" data-section="tools">
+      <div class="section-head"><div class="section-title"><span class="section-icon">🧰</span><div><h2>atalhos que salvam</h2><p class="section-sub">Pesquisa, idiomas e ferramentas do dia a dia.</p></div></div><span class="section-count"></span></div>
       <div class="grid">
-        <a class="card" href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer" data-search="wikipedia enciclopédia pesquisa referência"><div class="card-top"><span class="card-emoji">📖</span><span class="external" aria-hidden="true">↗</span></div><h3>Wikipédia</h3><p>Ponto de partida pra pesquisar — confira as fontes também.</p><span class="domain">wikipedia.org</span></a>
-        <a class="card" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" data-search="google tradutor idiomas tradução texto"><div class="card-top"><span class="card-emoji">🌐</span><span class="external" aria-hidden="true">↗</span></div><h3>Google Tradutor</h3><p>Traduza palavras e textos entre vários idiomas.</p><span class="domain">translate.google.com</span></a>
+        <article class="card" data-category="tools" data-search="wikipedia enciclopédia pesquisa referência conhecimento"><div class="card-top"><span class="card-emoji">📖</span><button class="favorite" type="button" aria-label="Adicionar Wikipédia aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer"><h3>Wikipédia</h3><p>Um começo pra pesquisar — abre as fontes e confere também.</p></a><div class="card-bottom"><span class="domain">wikipedia.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="tools" data-search="google tradutor idiomas tradução texto"><div class="card-top"><span class="card-emoji">🌎</span><button class="favorite" type="button" aria-label="Adicionar Google Tradutor aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer"><h3>Google Tradutor</h3><p>Traduza palavras, textos e páginas entre idiomas.</p></a><div class="card-bottom"><span class="domain">translate.google.com</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="tools" data-search="deepl tradução idiomas tradutor texto"><div class="card-top"><span class="card-emoji">🗣️</span><button class="favorite" type="button" aria-label="Adicionar DeepL aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.deepl.com/translator" target="_blank" rel="noopener noreferrer"><h3>DeepL</h3><p>Outra opção popular pra traduzir textos e documentos.</p></a><div class="card-bottom"><span class="domain">deepl.com</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="tools" data-search="dicio dicionário português palavras significado"><div class="card-top"><span class="card-emoji">📚</span><button class="favorite" type="button" aria-label="Adicionar Dicio aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.dicio.com.br/" target="_blank" rel="noopener noreferrer"><h3>Dicio</h3><p>Dicionário de português pra tirar dúvida de palavra rapidinho.</p></a><div class="card-bottom"><span class="domain">dicio.com.br</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="tools" data-search="languagetool gramática revisão português ortografia texto"><div class="card-top"><span class="card-emoji">📝</span><button class="favorite" type="button" aria-label="Adicionar LanguageTool aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://languagetool.org/pt-BR" target="_blank" rel="noopener noreferrer"><h3>LanguageTool</h3><p>Ajuda a revisar ortografia e gramática em vários idiomas.</p></a><div class="card-bottom"><span class="domain">languagetool.org</span><span class="external" aria-hidden="true">↗</span></div></article>
+        <article class="card" data-category="tools" data-search="wolframalpha matemática ciência cálculo referência"><div class="card-top"><span class="card-emoji">🧠</span><button class="favorite" type="button" aria-label="Adicionar WolframAlpha aos favoritos" aria-pressed="false">♡</button></div><a class="card-link" href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer"><h3>WolframAlpha</h3><p>Explore cálculos e conceitos; use pra entender o caminho.</p></a><div class="card-bottom"><span class="domain">wolframalpha.com</span><span class="external" aria-hidden="true">↗</span></div></article>
       </div>
     </section>
 
-    <p class="empty" id="empty" role="status">Nenhum link encontrado. Tenta outra busca ✨</p>
-
-    <aside class="notice" aria-label="Aviso importante">
+    <p class="empty" id="empty" role="status">Não achei esse link. Tenta outro termo ou limpa os filtros ✨</p>
+    <aside class="notice" aria-label="Transparência e segurança">
       <span class="notice-icon">🛡️</span>
-      <div><h2>Transparência & bom senso</h2><p>Este site é um diretório: não hospeda os serviços listados nem contorna bloqueios, filtros ou regras de escolas. Use a internet de acordo com as políticas da sua escola e os termos de cada serviço. Links externos podem mudar; confira o destino antes de acessar. Conteúdo adulto, espelhos de procedência duvidosa e links voltados a burlar restrições foram deixados de fora.</p></div>
+      <div><h2>Transparência, sempre</h2><p>Este é um catálogo de links externos; não hospeda nem controla os serviços listados. Não oferece proxies ou meios para contornar filtros, firewalls ou regras escolares. Alguns sites externos têm anúncios, conteúdo enviado por usuários ou políticas próprias — confira o destino, a classificação etária e os termos antes de usar. Acesso à internet deve respeitar as regras da escola e da sua rede. Links podem mudar ou ficar indisponíveis.</p></div>
     </aside>
   </main>
-
-  <footer><div class="wrap foot"><span>feito com carinho pela comunidade · links for me</span><span>Conteúdo e links revisáveis pela comunidade. Nenhuma afiliação oficial com os sites externos.</span></div></footer>
+  <footer><div class="wrap foot"><span>feito com carinho pela comunidade · Links for me</span><span>Sem afiliação oficial com os serviços externos. Favoritos ficam salvos só neste navegador.</span></div></footer>
   <script>
-    const search = document.querySelector('#search');
-    const cards = [...document.querySelectorAll('.card')];
-    const sections = [...document.querySelectorAll('[data-section]')];
-    const empty = document.querySelector('#empty');
-    search.addEventListener('input', () => {
-      const query = search.value.trim().toLocaleLowerCase('pt-BR');
-      let visible = 0;
+    (() => {
+      const search = document.querySelector('#search');
+      const cards = [...document.querySelectorAll('.card')];
+      const sections = [...document.querySelectorAll('[data-section]')];
+      const filters = [...document.querySelectorAll('.filter')];
+      const empty = document.querySelector('#empty');
+      const resultCount = document.querySelector('#result-count');
+      const favoriteKey = 'links-for-me-favorites-v1';
+      let selectedFilter = 'all';
+      let favoriteIds = new Set();
+      try { favoriteIds = new Set(JSON.parse(localStorage.getItem(favoriteKey) || '[]')); } catch { favoriteIds = new Set(); }
+      const cardId = card => card.querySelector('h3').textContent.trim();
+
       cards.forEach(card => {
-        const match = !query || `${card.innerText} ${card.dataset.search}`.toLocaleLowerCase('pt-BR').includes(query);
-        card.classList.toggle('hide', !match);
-        if (match) visible++;
+        const id = cardId(card);
+        const button = card.querySelector('.favorite');
+        const isSaved = favoriteIds.has(id);
+        button.setAttribute('aria-pressed', String(isSaved));
+        button.textContent = isSaved ? '♥' : '♡';
+        button.addEventListener('click', () => {
+          if (favoriteIds.has(id)) favoriteIds.delete(id); else favoriteIds.add(id);
+          button.setAttribute('aria-pressed', String(favoriteIds.has(id)));
+          button.textContent = favoriteIds.has(id) ? '♥' : '♡';
+          try { localStorage.setItem(favoriteKey, JSON.stringify([...favoriteIds])); } catch { /* favoritos continuam funcionais durante esta visita */ }
+          render();
+        });
       });
-      sections.forEach(section => section.classList.toggle('hide', !section.querySelector('.card:not(.hide)')));
-      empty.style.display = visible ? 'none' : 'block';
-    });
-    document.addEventListener('keydown', event => {
-      if (event.key === '/' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
-        event.preventDefault(); search.focus();
+
+      function render() {
+        const query = search.value.trim().toLocaleLowerCase('pt-BR');
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const categoryMatch = selectedFilter === 'all' ||
+            (selectedFilter === 'favorites' ? favoriteIds.has(cardId(card)) : card.dataset.category === selectedFilter);
+          const text = `${card.innerText} ${card.dataset.search}`.toLocaleLowerCase('pt-BR');
+          const queryMatch = !query || text.includes(query);
+          const visible = categoryMatch && queryMatch;
+          card.classList.toggle('hide', !visible);
+          if (visible) visibleCount++;
+        });
+        sections.forEach(section => {
+          const visibleCards = [...section.querySelectorAll('.card')].filter(card => !card.classList.contains('hide')).length;
+          section.classList.toggle('hide', visibleCards === 0);
+          section.querySelector('.section-count').textContent = `${visibleCards} ${visibleCards === 1 ? 'link' : 'links'}`;
+        });
+        empty.style.display = visibleCount ? 'none' : 'block';
+        resultCount.textContent = `${visibleCount} ${visibleCount === 1 ? 'link' : 'links'}`;
       }
-      if (event.key === 'Escape' && document.activeElement === search) {
-        search.value = ''; search.dispatchEvent(new Event('input')); search.blur();
-      }
-    });
+
+      filters.forEach(button => button.addEventListener('click', () => {
+        selectedFilter = button.dataset.filter;
+        filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+        render();
+      }));
+      search.addEventListener('input', render);
+      document.querySelector('#surprise').addEventListener('click', () => {
+        const available = cards.filter(card => !card.classList.contains('hide'));
+        const pool = available.length ? available : cards;
+        const choice = pool[Math.floor(Math.random() * pool.length)];
+        choice.querySelector('.card-link').click();
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+          event.preventDefault(); search.focus();
+        }
+        if (event.key === 'Escape' && document.activeElement === search) {
+          search.value = ''; search.dispatchEvent(new Event('input')); search.blur();
+        }
+      });
+      render();
+    })();
   </script>
 </body>
 </html>
